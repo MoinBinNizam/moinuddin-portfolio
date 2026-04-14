@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { getExperience } from '../utils/api';
-import { Experience } from '../types';
+import type { Experience } from '../types';
 
 const Journey: React.FC = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);

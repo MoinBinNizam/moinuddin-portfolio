@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { getSkills } from '../utils/api';
-import { Skill } from '../types';
+import type { Skill } from '../types';
 import { Code2, Server, Layout, Database, Terminal, Settings } from 'lucide-react';
 
 const iconMap: { [key: string]: any } = {

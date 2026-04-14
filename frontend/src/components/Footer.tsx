@@ -1,5 +1,5 @@
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -16,13 +16,13 @@ const Footer: React.FC = () => {
 
         <div className="flex space-x-8">
           <a href="#" className="p-4 border border-gray-800 hover:border-accent transition-colors">
-            <Github size={20} />
+            <FaGithub size={20} />
           </a>
           <a href="#" className="p-4 border border-gray-800 hover:border-accent transition-colors">
-            <Linkedin size={20} />
+            <FaLinkedin size={20} />
           </a>
           <a href="#" className="p-4 border border-gray-800 hover:border-accent transition-colors">
-            <Twitter size={20} />
+            <FaTwitter size={20} />
           </a>
         </div>
       </div>

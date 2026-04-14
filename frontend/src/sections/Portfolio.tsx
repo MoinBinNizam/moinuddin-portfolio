@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { getProjects } from '../utils/api';
-import { Project } from '../types';
-import { ExternalLink, Github } from 'lucide-react';
+import type { Project } from '../types';
+import { ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 const Portfolio: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -48,7 +49,7 @@ const Portfolio: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6">
                   {project.liveLink && <a href={project.liveLink} target="_blank" className="p-3 bg-white text-black"><ExternalLink size={20} /></a>}
-                  {project.githubLink && <a href={project.githubLink} target="_blank" className="p-3 bg-gray-900 text-white border border-gray-700"><Github size={20} /></a>}
+                  {project.githubLink && <a href={project.githubLink} target="_blank" className="p-3 bg-gray-900 text-white border border-gray-700"><FaGithub size={20} /></a>}
                 </div>
               </div>
 

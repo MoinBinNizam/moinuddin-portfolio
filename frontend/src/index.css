@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: 0 0% 4%;
@@ -9,7 +7,7 @@
 
 @layer base {
   * {
-    @apply border-gray-800 rounded-none !important;
+    @apply border-gray-800 rounded-none;
   }
   body {
     @apply bg-[#0a0a0a] text-white font-sans selection:bg-blue-500 selection:text-white;

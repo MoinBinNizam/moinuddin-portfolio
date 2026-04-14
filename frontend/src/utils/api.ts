@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Project, Experience, Skill, Testimonial } from '../types';
+import type { Project, Experience, Skill, Testimonial } from '../types';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+}
+
+@layer base {
+  * {
+    @apply border-gray-800 rounded-none !important;
+  }
+  body {
+    @apply bg-[#0a0a0a] text-white font-sans selection:bg-blue-500 selection:text-white;
+  }
+}
+
+@layer utilities {
+  .sharp-card {
+    @apply border border-gray-800 bg-[#111] hover:border-gray-600 transition-colors;
+  }
+  .section-padding {
+    @apply py-16 px-6 md:px-12 lg:px-24;
+  }
+}

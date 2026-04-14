@@ -1,9 +1,11 @@
-import { Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const { Model, DataTypes } = Sequelize;
-
-export class User extends Model {}
+export class User extends Model {
+  declare id: string;
+  declare username: string;
+  declare password: string;
+}
 
 User.init(
   {

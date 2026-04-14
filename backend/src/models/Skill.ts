@@ -1,9 +1,12 @@
-import { Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const { Model, DataTypes } = Sequelize;
-
-export class Skill extends Model {}
+export class Skill extends Model {
+  declare id: string;
+  declare name: string;
+  declare category: 'Frontend' | 'Backend' | 'Tools';
+  declare iconName?: string;
+}
 
 Skill.init(
   {

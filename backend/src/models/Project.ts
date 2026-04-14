@@ -1,9 +1,16 @@
-import { Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const { Model, DataTypes } = Sequelize;
-
-export class Project extends Model {}
+export class Project extends Model {
+  declare id: string;
+  declare title: string;
+  declare category: 'ERP' | 'POS' | 'WordPress' | 'React';
+  declare description: string;
+  declare techStack: string[];
+  declare imageUrl?: string;
+  declare liveLink?: string;
+  declare githubLink?: string;
+}
 
 Project.init(
   {
@@ -27,7 +34,6 @@ Project.init(
     techStack: {
       type: DataTypes.JSON,
       allowNull: false,
-      defaultValue: [],
     },
     imageUrl: {
       type: DataTypes.STRING,

@@ -1,9 +1,14 @@
-import { Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const { Model, DataTypes } = Sequelize;
-
-export class Testimonial extends Model {}
+export class Testimonial extends Model {
+  declare id: string;
+  declare clientName: string;
+  declare clientCompany?: string;
+  declare rating: number;
+  declare message: string;
+  declare projectId?: string;
+}
 
 Testimonial.init(
   {
@@ -23,10 +28,6 @@ Testimonial.init(
     rating: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        min: 1,
-        max: 5,
-      },
     },
     message: {
       type: DataTypes.TEXT,

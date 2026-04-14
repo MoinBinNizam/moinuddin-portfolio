@@ -21,7 +21,9 @@ export const createTestimonial = async (req: Request, res: Response) => {
 
 export const deleteTestimonial = async (req: Request, res: Response) => {
   try {
-    const testimonial = await Testimonial.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const testimonial = await Testimonial.findByPk(id);
     if (!testimonial) return res.status(404).json({ message: 'Testimonial not found' });
     await testimonial.destroy();
     res.json({ message: 'Testimonial deleted' });

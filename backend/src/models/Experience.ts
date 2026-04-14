@@ -1,9 +1,14 @@
-import { Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const { Model, DataTypes } = Sequelize;
-
-export class Experience extends Model {}
+export class Experience extends Model {
+  declare id: string;
+  declare companyName: string;
+  declare role: string;
+  declare startDate: string;
+  declare endDate?: string;
+  declare contributions: string;
+}
 
 Experience.init(
   {

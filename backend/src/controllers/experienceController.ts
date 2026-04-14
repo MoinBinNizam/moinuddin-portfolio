@@ -23,7 +23,9 @@ export const createExperience = async (req: Request, res: Response) => {
 
 export const updateExperience = async (req: Request, res: Response) => {
   try {
-    const experience = await Experience.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const experience = await Experience.findByPk(id);
     if (!experience) return res.status(404).json({ message: 'Experience not found' });
     await experience.update(req.body);
     res.json(experience);
@@ -34,7 +36,9 @@ export const updateExperience = async (req: Request, res: Response) => {
 
 export const deleteExperience = async (req: Request, res: Response) => {
   try {
-    const experience = await Experience.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const experience = await Experience.findByPk(id);
     if (!experience) return res.status(404).json({ message: 'Experience not found' });
     await experience.destroy();
     res.json({ message: 'Experience deleted' });

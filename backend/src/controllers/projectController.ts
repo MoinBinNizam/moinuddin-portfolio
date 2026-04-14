@@ -14,7 +14,9 @@ export const getAllProjects = async (req: Request, res: Response) => {
 
 export const getProjectById = async (req: Request, res: Response) => {
   try {
-    const project = await Project.findByPk(req.params.id, {
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const project = await Project.findByPk(id, {
       include: [{ model: Testimonial, as: 'testimonials' }],
     });
     if (!project) return res.status(404).json({ message: 'Project not found' });
@@ -35,7 +37,9 @@ export const createProject = async (req: Request, res: Response) => {
 
 export const updateProject = async (req: Request, res: Response) => {
   try {
-    const project = await Project.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const project = await Project.findByPk(id);
     if (!project) return res.status(404).json({ message: 'Project not found' });
     await project.update(req.body);
     res.json(project);
@@ -46,7 +50,9 @@ export const updateProject = async (req: Request, res: Response) => {
 
 export const deleteProject = async (req: Request, res: Response) => {
   try {
-    const project = await Project.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const project = await Project.findByPk(id);
     if (!project) return res.status(404).json({ message: 'Project not found' });
     await project.destroy();
     res.json({ message: 'Project deleted' });

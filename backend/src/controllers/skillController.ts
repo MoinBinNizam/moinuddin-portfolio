@@ -21,7 +21,9 @@ export const createSkill = async (req: Request, res: Response) => {
 
 export const updateSkill = async (req: Request, res: Response) => {
   try {
-    const skill = await Skill.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const skill = await Skill.findByPk(id);
     if (!skill) return res.status(404).json({ message: 'Skill not found' });
     await skill.update(req.body);
     res.json(skill);
@@ -32,7 +34,9 @@ export const updateSkill = async (req: Request, res: Response) => {
 
 export const deleteSkill = async (req: Request, res: Response) => {
   try {
-    const skill = await Skill.findByPk(req.params.id);
+    const { id } = req.params;
+    if (typeof id !== 'string') return res.status(400).json({ message: 'Invalid ID' });
+    const skill = await Skill.findByPk(id);
     if (!skill) return res.status(404).json({ message: 'Skill not found' });
     await skill.destroy();
     res.json({ message: 'Skill deleted' });
